@@ -26,7 +26,7 @@ namespace LAB09
 
         public override string ToString()
         {
-            return $"{Name}, Стоимость за кг: {PricePerKg}, Количество кг: {QuantityKg}, Вегетарианскмй: {IsVegeterian}";
+            return $"{Name}: количество: {QuantityKg}кг, стоимость за кг: {PricePerKg}BYN, стоимость: {GetCost()}BYN";
         }
     }
 }

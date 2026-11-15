@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LAB09
 {
-    public class Meat : Product
+    public class Meat : Product, IDiscountable
     {
         public double FatPercent { get; set; }
         public string MeatType { get; set; }
@@ -13,10 +13,9 @@ namespace LAB09
             string name,
             double pricePerKg,
             double quantityKg,
-            bool isVegeterian,
             double fatPercent,
             string meatType
-            ) : base(name, pricePerKg, quantityKg, isVegeterian)
+            ) : base(name, pricePerKg, quantityKg, false)
         {
             FatPercent = fatPercent;
             MeatType = meatType;
@@ -26,21 +25,21 @@ namespace LAB09
         {
             if (QuantityKg >= 3)
             {
-                return 15;
+                return 0.15;
             }
             else if (QuantityKg >= 2)
             {
-                return 10;
+                return 0.10;
             }
             else
             {
-                return 5;
+                return 0.5;
             }
         }
 
         public override string ToString()
         {
-            return base.ToString() + $", Жирность: {FatPercent}, Вид мяса: {MeatType}, Скидка: {GetDiscount()}";
+            return base.ToString() + $", жирность: {FatPercent}%, вид мяса: {MeatType}, Скидка: {GetDiscount() * 100}%";
         }
     }
 }

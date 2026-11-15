@@ -6,5 +6,6 @@ namespace LAB09
 {
     public interface IDiscountable
     {
+        double GetDiscount();
     }
 }
