@@ -6,7 +6,19 @@ namespace LAB09
 {
     public class Meat : Product, IDiscountable
     {
-        public double FatPercent { get; set; }
+        private double fatPercent;
+        public double FatPercent 
+        {  
+            get { return fatPercent; }
+            set
+            {
+                if(value < 0 || value > 100)
+                {
+                    throw new ArgumentException("Жирность от 0 до 100");
+                }
+                fatPercent = value;
+            }
+        }
         public string MeatType { get; set; }
 
         public Meat(
@@ -33,7 +45,7 @@ namespace LAB09
             }
             else
             {
-                return 0.5;
+                return 0.05;
             }
         }
 

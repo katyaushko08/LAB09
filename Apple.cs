@@ -33,7 +33,7 @@ namespace LAB09
             }
             else
             {
-                return 0.5;
+                return 0.05;
             }
         }
 

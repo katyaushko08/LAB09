@@ -27,7 +27,7 @@ namespace LAB09
             {
                 if(QuantityKg < 3)
                 {
-                    return 0.5;
+                    return 0.05;
                 }
                 else 
                 {

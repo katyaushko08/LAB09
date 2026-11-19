@@ -8,14 +8,14 @@ namespace LAB09
     {
         public int MaxAmount { get; set; } = 5;
         private List<Product> products = new List<Product>();
-        public List<Product> Products => products;
+        public List<Product> Products => products;            //для чтения
 
         public void AddToCart(Product p)
         {
             if(products.Count >= MaxAmount)
             {
                 Console.WriteLine("Корзина заполнена! ");
-                return;                                                  //return??????????
+                return;                                                  //return для выхода(завершает метод), чтобы нельзя было добавить больше 5 товаров
             }
 
             products.Add(p);
@@ -24,7 +24,7 @@ namespace LAB09
 
         public void DeleteFromCart(Product p)
         {
-            if (products.Remove(p))
+            if (products.Remove(p))            //удаляет по ссылке
             {
                 Console.WriteLine($"Товар {p.Name} удален из корзины. ");
             }
@@ -46,7 +46,7 @@ namespace LAB09
             return total;
         }
 
-        public double CalculateDiscountedCost()
+        public double CalculateDiscountedCost()    //////разобрать
         {
             double total = 0;
 
@@ -72,7 +72,7 @@ namespace LAB09
 
             foreach(Product p in products)
             {
-                if (p.IsVegeterian)
+                if (p.IsVegetarian)
                 {
                     sum += p.GetCost();
                     count++;
@@ -87,7 +87,7 @@ namespace LAB09
              return sum / count;    
         }
 
-        public static bool operator ==(Cart c1, Cart c2)           //поч static
+        public static bool operator ==(Cart c1, Cart c2)           
         {
             return Math.Round(c1.CalculateDiscountedCost(), 2) == Math.Round(c2.CalculateDiscountedCost(), 2);
         }

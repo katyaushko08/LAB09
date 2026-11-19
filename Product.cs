@@ -6,17 +6,41 @@ namespace LAB09
 {
     public class Product
     {
+        private double pricePerKg;
+        private double quantityKg;
         public string Name { get; set; }
-        public double PricePerKg { get; set; }
-        public double QuantityKg { get; set; }
-        public bool IsVegeterian { get; set; }
+        public double PricePerKg 
+        { 
+            get {  return pricePerKg; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Цена не может быть отрицательной!");
+                }
+                pricePerKg = value;
+            }
+        }
+        public double QuantityKg
+        {
+            get { return quantityKg; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Цена не может быть отрицательной!");
+                }
+                quantityKg = value;
+            }
+        }
+        public bool IsVegetarian { get; set; }
 
-        public Product(string name, double pricePerKg, double quantityKg, bool isVegeterian)
+        public Product(string name, double pricePerKg, double quantityKg, bool isVegetarian)
         {
             Name = name;
             PricePerKg = pricePerKg;
             QuantityKg = quantityKg;
-            IsVegeterian = isVegeterian;
+            IsVegetarian = isVegetarian;
         }
 
         public double GetCost()
