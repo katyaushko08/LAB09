@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LAB09
 {
-    public class Product
+    public class Product 
     {
         private double pricePerKg;
         private double quantityKg;

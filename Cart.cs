@@ -8,14 +8,14 @@ namespace LAB09
     {
         public int MaxAmount { get; set; } = 5;
         private List<Product> products = new List<Product>();
-        public List<Product> Products => products;            //для чтения
+        public List<Product> Products => products;           
 
         public void AddToCart(Product p)
         {
             if(products.Count >= MaxAmount)
             {
                 Console.WriteLine("Корзина заполнена! ");
-                return;                                                  //return для выхода(завершает метод), чтобы нельзя было добавить больше 5 товаров
+                return;                                                 
             }
 
             products.Add(p);
@@ -46,7 +46,7 @@ namespace LAB09
             return total;
         }
 
-        public double CalculateDiscountedCost()    //////разобрать
+        public double CalculateDiscountedCost()    
         {
             double total = 0;
 
